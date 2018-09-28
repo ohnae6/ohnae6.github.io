@@ -65,9 +65,8 @@
 					'<h2>찾아오시는 길</h2>'+
 					'<div id="map"></div>'+
 				    '<ul>'+
-					'<li><strong>주소:</strong> 경기도 가평군 가평읍 금대리 305-6 리버힐펜션</li>'+
-					'<li><strong>도로명:</strong> 경기도 가평군 가평읍 북한강변로 536 리버힐펜션</li>'+
-					'<li class="txt_guide"><strong>가평역</strong> 무료 픽업 및 드롭서비스 해드립니다.</li>'+
+					'<li><strong>주소:</strong> 경기도 평택시 </li>'+
+					'<li><strong>도로명:</strong> 경기도 평택시 </li>'+
 					'</ul>'+
 				'</div>'+
 			'</div>',
@@ -95,10 +94,10 @@
 	app.directive('kaisaFooter',[function(){
 		return {
 			template: '<div id="footer">'+
-				'<p>상호 : 리버힐 펜션 , 주소 : 경기도 가평읍 금대리 306 , 전화 : 070-9482-2070 / 070-4882-2803 <br />'+
-				'사업자번호 : 132-25-97858  통신판매신고번호 : 제 2009-경기가평-16호 <br />'+
-				'copyright (c) 2018 Rever Hill. all right reserved<b data-ng-click="admin.layer.open()">..</b></p>'+
-				'<p data-ng-if="admin.user" class="admin"><span data-ng-click="admin.logout()">관리자 로그아웃</span></p>'+
+				'<p>상호 : 평택해피콜 , 전화 : 010-3338-0101 <br />'+
+				//'사업자번호 : 132-25..  통신판매신고번호 : 제 2009-.. <br />'+
+				'copyright (c) 2018 PT Call. all right reserved'+ //<b data-ng-click="admin.layer.open()">..</b></p>
+				//'<p data-ng-if="admin.user" class="admin"><span data-ng-click="admin.logout()">관리자 로그아웃</span></p>'+
 			'</div>',
 			replace: true,
 			link: function($scope, el, attrs){
@@ -228,17 +227,17 @@
 	        });
 	    };
 	});
-	
+
 	app.directive('myDir', ['$parse', function ($parse) {
 	    return {
 	        restrict: 'EA',
 	        scope: true,
 	        link: function (scope, elem, attrs) {
-	           
+
 	        }
 	    };
 	}]);
-	
+
 	app.directive('kaisaCaptcha',['$parse',function($parse){
 		return {
 			link : function($scope, el, attrs, ctrl) {

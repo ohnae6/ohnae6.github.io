@@ -35,7 +35,7 @@
 		for(var i in commonParamArray){
 			if(kaisaParam.getParam(commonParamArray[i])){
 				self[commonParamArray[i]] = kaisaParam.getParam(commonParamArray[i]);
-			}  
+			}
 		}
 	}]);
 	/**
@@ -82,7 +82,7 @@
 	}]);
 	app.controller('KaisaController',['$rootScope', 'commonParam' ,'$window','$scope','$location','$compile','$http','$timeout','kaisaUrl','kaisaParam','constant','kaisaApi','kaisaStorage','$httpParamSerializerJQLike','$filter',
 	                          function($rootScope ,  commonParam  , $window , $scope , $location , $compile , $http , $timeout , kaisaUrl , kaisaParam , constant , kaisaApi , kaisaStorage , $httpParamSerializerJQLike , $filter){
-		
+
 		if(location.protocol == 'https:'){
 			//location.href = 'http://' + location.hostname + location.pathname + location.search; //ssl 사용페이지 없음
 		}
@@ -141,7 +141,7 @@
 		$scope.browser = browser;
 		/**
 		 * device info TO-DO
-		 */		
+		 */
 		var device = {
 			mobile : false,
 			android : false,
@@ -151,7 +151,7 @@
 		};
 		$scope.device = device;
 		/**
-		 * commonParam , searchParam , http POST format 
+		 * commonParam , searchParam , http POST format
 		 */
 		$scope.commonParam = commonParam;
 		$scope.searchParam = {
@@ -165,7 +165,7 @@
         };
 		$scope.jsonpParam = function(param){
 			return '?callback=JSON_CALLBACK&' + $httpParamSerializerJQLike(param); //jsonp 는 param 을  object 로 담을 수 없다
-		};	
+		};
 		$scope.menuList = [
 			{title:'예약게시판', url:'reservation'},
 			{title:'1:1문의', url:'qna'},
@@ -217,9 +217,9 @@
 			open : function(option){
 				this.option = $.extend({}, this.optionDefault, option);
 				this.active = true;
-				
+
 				var directiveName = this.option.target.replace(/([a-z])([A-Z])/g,'$1-$2').toLowerCase();
-	
+
 				angular.element('#popupContent').empty().append($compile(angular.element('<div '+directiveName+'></div>'))($scope));
 			},
 			close : function(option){
@@ -335,7 +335,7 @@
 			if(loading.status != 200){
         		console.debug('error : ' + loading.status);
         		$scope.loading.active = false;
-        	}			
+        	}
 			if(loading.first){
 				$scope.historyChecker();
 			}
@@ -383,30 +383,7 @@
 			}
 			kaisaStorage.setSessionStorage('pageInfo',$scope.pageInfoSession,'json');
 		});
-		/**
-		 * 객실정보
-		 */
-		$scope.roomList = kaisaStorage.getSessionStorage('roomList','json');
-		$scope.getRoomList = function() {
-			$http.jsonp(kaisaApi.getRoomList + $scope.jsonpParam({})).success(function(data){
-				$scope.roomList = {
-					version : $scope.constant.version,
-					items : data.items
-				};
-				kaisaStorage.setSessionStorage('roomList',$scope.roomList,'json');
-				console.log($scope.roomList);
-		    }).error(function(data){
-		    	$scope.alert.open({message : '객실조회 실패.'});
-		    	$scope.loading.active = false;
-		    });
-		};
-		if(!$scope.roomList){ //TODO || $scope.roomList 삭제  evict
-			$scope.getRoomList();
-		}else{
-			if($scope.roomList.items.length == 0 || $scope.constant.version != $scope.roomList.version){ //sessionStorage refresh
-				$scope.getRoomList();
-			}
-		};
+
 		/**
 		 * 관리자 로그인
 		 */
