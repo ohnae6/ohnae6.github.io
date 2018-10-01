@@ -5,99 +5,25 @@
 		return {
 			template: '<div id="header">'+
 				'<h1><a href="/"><img src="/img/common/logo.png" alt="" /></a></h1>'+
+				'<ul>'+
+					'<li><a href="/">이용안내</a></li>'+
+					'<li><a href="/">요금표</a></li>'+
+					'<li><a href="/">갤러리</a></li>'+
+				'</ul>'+
 			'</div>',
 			replace: true,
 			link: function($scope, el, attrs){
-			}
-		}
-	}]);
-	app.directive('kaisaMenu',[function(){
-		return {
-			template: '<div>'+
-				'<div id="menu">'+
-					'<ul>'+
-						'<li data-ng-repeat="(idx, i) in roomList.items"><a data-ng-href="/pension/room{{idx + 1}}">{{i.ROOM_NAME}}</a></li>'+
-					'</ul>'+
-					'<ol>'+
-						'<li data-ng-repeat="(idx, i) in menuList"><a data-ng-href="/{{i.url}}">{{i.title}}</a></li>'+
-					'</ol>'+
-				'</div>'+
-				'<div id="alert" data-ng-if="alert.active" data-ng-class="{on:alert.active}">'+
-					'<div class="wrap" data-ng-style="alert.option.style">'+
-						'<h5 data-ng-show="alert.option.title">{{alert.option.title}}</h5>'+
-						'<p data-ng-if="alert.option.type==\'text\'">{{alert.option.message}}</p>'+
-						'<p data-ng-if="alert.option.type==\'html\'" data-ng-bind-html="alert.option.message | trustHtml"></p>'+
-						'<div class="btn_wrap" data-ng-if="alert.option.confirm">'+
-							'<span><button type="button" data-ng-click="alert.option.callback();alert.close()">{{alert.option.button.ok}}</button></span> <span data-ng-show="! alert.option.cancelCallback"><button type="button" class="normal" data-ng-click="alert.close()">{{alert.option.button.cancel}}</button></span> <span class="button" data-ng-show="alert.option.cancelCallback"><button type="button" class="normal" data-ng-click="alert.option.cancelCallback();alert.close()">{{alert.option.button.cancel}}</button></span>'+
-						'</div>'+
-						'<div class="btn_wrap" data-ng-if="! alert.option.confirm">'+
-							'<span data-ng-show="! alert.option.callback"><button type="button" class="normal" data-ng-click="alert.close()">{{alert.option.button.ok}}</button></span> <span data-ng-show="alert.option.callback"><button type="button" data-ng-click="alert.option.callback();alert.close()">{{alert.option.button.ok}}</button></span>'+
-						'</div>'+
-					'</div>'+
-				'</div>'+
-				'<div id="help" data-ng-if="help.active" data-ng-class="{on:help.active}" data-ng-style="help.style" data-ng-bind-html="help.html | trustHtml"></div>'+
-				'<div id="loading" data-ng-if="loading.active" data-ng-class="{on:loading.active}">'+
-					'<ul class="loading">'+
-						'<li></li>'+
-						'<li></li>'+
-						'<li></li>'+
-						'<li></li>'+
-						'<li></li>'+
-					'</ul>'+
-				'</div>'+
-				'<div id="login" data-ng-if="admin.layer.active">'+
-					'<h3>로그인</h3>'+
-					'<input autocapitalize="off" autocomplete="off" type="text" maxlength="10" required="required" data-ng-model="admin.si" />'+
-					'<input autocapitalize="off" autocomplete="off" type="password" maxlength="10" required="required" data-ng-model="admin.sp" />'+
-					'<button type="button" data-ng-click="admin.submit()">로그인</button>'+
-				'</div>'+
-				'<div id="dimmed" data-ng-class="{on : dimmed.active}" data-ng-click="dimmed.click()"></div>'+
-			'</div>',
-			replace: true,
-			link: function($scope, el, attrs){
-			}
-		}
-	}]);
-	app.directive('kaisaMap',[function(){
-		return {
-			template: '<div id="contactUs">'+
-				'<div class="wrap">'+
-					'<h2>찾아오시는 길</h2>'+
-					'<div id="map"></div>'+
-				    '<ul>'+
-					'<li><strong>주소:</strong> 경기도 평택시 </li>'+
-					'<li><strong>도로명:</strong> 경기도 평택시 </li>'+
-					'</ul>'+
-				'</div>'+
-			'</div>',
-			replace: true,
-			link: function($scope, el, attrs){
-				window.initMap = function(){
-					var uluru = {
-						lat : 37.774083,
-						lng : 127.535045
-					};
-					var map = new google.maps.Map(document.getElementById('map'), {
-						zoom : 15,
-						gestureHandling: 'cooperative',
-						center : uluru
-					});
-					var marker = new google.maps.Marker({
-						position : uluru,
-						map : map
-					});
-				}
-				angular.element(el).append('<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHJZ33ORPXZyNOAz7M6HKBPjHTZ8n6CLs&callback=initMap"></script>');
 			}
 		}
 	}]);
 	app.directive('kaisaFooter',[function(){
 		return {
 			template: '<div id="footer">'+
-				'<p>상호 : 평택해피콜 , 전화 : 010-3338-0101 <br />'+
-				//'사업자번호 : 132-25..  통신판매신고번호 : 제 2009-.. <br />'+
+				'<p>상호 : 평택콜밴(행복콜밴), 전화 : 010-3338-0101 <br />'+
+				'사업자등록번호 : 350-53-00425(간이과세자) , 주소 : 경기도 평택시 세교상가 2길 (세교동)<br />'+
 				'copyright (c) 2018 PT Call. all right reserved'+ //<b data-ng-click="admin.layer.open()">..</b></p>
 				//'<p data-ng-if="admin.user" class="admin"><span data-ng-click="admin.logout()">관리자 로그아웃</span></p>'+
+				/* 김춘옥 경기 68사 6269 email : 7083620@hanmail.net*/
 			'</div>',
 			replace: true,
 			link: function($scope, el, attrs){
