@@ -4,12 +4,25 @@
 	app.directive('kaisaHeader',[function(){
 		return {
 			template: '<div id="header">'+
-				'<h1><a href="/"><img src="/img/common/logo.png" alt="" /></a></h1>'+
-				'<ul>'+
-					'<li><a href="/">이용안내</a></li>'+
-					'<li><a href="/">요금표</a></li>'+
-					'<li><a href="/">갤러리</a></li>'+
-				'</ul>'+
+				'<div class="wrapper">'+
+					'<h1><a href="/"><img src="/img/common/logo.png" alt="" /></a></h1>'+
+				'</div>'+
+			'</div>',
+			replace: true,
+			link: function($scope, el, attrs){
+			}
+		}
+	}]);
+	app.directive('kaisaMenu',[function(){
+		return {
+			template: '<div id="menu">'+
+				'<div class="wrapper">'+
+					'<ul>'+
+						'<li><a href="javascript:alert(\'준비중입니다\')">이용안내</a></li>'+
+						'<li><a href="javascript:alert(\'준비중입니다\')">요금표</a></li>'+
+						'<li><a href="javascript:alert(\'준비중입니다\')">갤러리</a></li>'+
+					'</ul>'+
+				'</div>'+
 			'</div>',
 			replace: true,
 			link: function($scope, el, attrs){
@@ -18,13 +31,13 @@
 	}]);
 	app.directive('kaisaFooter',[function(){
 		return {
-			template: '<div id="footer">'+
+			template: '<div id="footer"><div class="wrapper">'+
 				'<p>상호 : 평택콜밴(행복콜밴), 전화 : 010-3338-0101 <br />'+
 				'사업자등록번호 : 350-53-00425(간이과세자) , 주소 : 경기도 평택시 세교상가 2길 (세교동)<br />'+
-				'copyright (c) 2018 PT Call. all right reserved'+ //<b data-ng-click="admin.layer.open()">..</b></p>
+				'<span class="copy">copyright (c) 2018 PT Call. all right reserved</span>'+ //<b data-ng-click="admin.layer.open()">..</b></p>
 				//'<p data-ng-if="admin.user" class="admin"><span data-ng-click="admin.logout()">관리자 로그아웃</span></p>'+
 				/* 김춘옥 경기 68사 6269 email : 7083620@hanmail.net*/
-			'</div>',
+			'</div></div>',
 			replace: true,
 			link: function($scope, el, attrs){
 			}
