@@ -40,7 +40,7 @@ body {background:#fff;}
 #header h1 img {margin-right:-40px; width:35%;}
 
 #menu {width:100%; text-align:center; white-space:nowrap; clear:both; background:url(/img/common/mask.png) repeat rgba(0,0,0,0.2);}
-#menu ul {width:100%; color:#fff; height:50px; line-height:50px; text-align:left; background:url(/img/common/mask.png) repeat;}
+#menu ul {width:100%; color:#fff; height:50px; line-height:50px; text-align:center; background:url(/img/common/mask.png) repeat;}
 #menu ul a {color:#fff; display:block; padding:0 30px; font-size:16px;}
 #menu ul a:hover {background:#333;}
 #menu ul li {display:inline-block;}
