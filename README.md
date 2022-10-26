@@ -7,6 +7,7 @@
 - npm run dev
 
 # vite 로 설치 할 경우
+
 - npm create vite@latest
 - npm install
 - npm run dev
@@ -14,7 +15,8 @@
 - rpm run build 빌드가 빠르다
 - router 설치가중요
 - axios 크로스도메인 TODO
-- 
+
+- 깃페이지에 해시라우터가 아니면 root 가 아니므로 404 발생
 
 
 # import 경로에 @ 사용하고 싶을때 vite.config.js
@@ -43,6 +45,7 @@ export default defineConfig({
 
 ## VS code
 - ESlint 확장팩 설치 .eslintrc.js
+
 # vue-cli 로 설치 할 경우
 
 - 이건 window nvm 에서 꼬일수 있음(?)
